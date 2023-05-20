@@ -5,13 +5,31 @@ from django.db import models
 class Location(models.Model):
     name: str = models.CharField(max_length=25, unique=True)
 
+    def __str__(self) -> str:
+        return f"{self.name}"
+
+    class Meta:
+        db_table = "location"
+
 
 class Currency(models.Model):
     name: str = models.CharField(max_length=25, unique=True)
 
+    def __str__(self) -> str:
+        return f"{self.name}"
+
+    class Meta:
+        db_table = "currency"
+
 
 class Categories(models.Model):
     name: str = models.CharField(max_length=25, unique=True)
+
+    def __str__(self) -> str:
+        return f"{self.name}"
+
+    class Meta:
+        db_table = "categories"
 
 
 class MoneyTransaction(models.Model):
@@ -38,4 +56,4 @@ class MoneyTransaction(models.Model):
         return f"{self.id} - {self.description}"
 
     class Meta:
-        db_table = "alert_states"
+        db_table = "money_transaction"
