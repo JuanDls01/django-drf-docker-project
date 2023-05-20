@@ -4,7 +4,7 @@
 
 This is a template project built with Django, Django Rest Framework, and Docker. It provides a starting point for developing web applications using these technologies
 
-## Features
+## Stack
 
 - Django: A high-level Python web framework that follows the model-view-controller (MVC) architectural pattern.
 - Django Rest Framework (DRF): A powerful and flexible toolkit for building Web APIs based on Django.
@@ -16,6 +16,14 @@ Make sure you have the following software installed before running the project:
 
 - Python 3.x
 - Docker Desktop
+
+## Features
+
+This project its not just a django with docker implementation, it has some other implemented features like:
+
+1. CustomPagination,
+2. Authentication with rest-framework and JWT (in progress),
+3. Bitbucket Pipeline (in progress),
 
 ## How do I get set up?
 
@@ -51,5 +59,5 @@ $ docker compose up
 - New app:
 
   ```bash
-  docker-compose run --rm app python manage.py startapp <app_name> [destination]
+  docker-compose run --rm app python manage.py startapp <app_name> project_apps
   ```
