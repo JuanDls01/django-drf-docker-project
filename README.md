@@ -4,7 +4,7 @@
 
 This is a template project built with Django, Django Rest Framework, and Docker. It provides a starting point for developing web applications using these technologies
 
-## Features
+## Stack
 
 - Django: A high-level Python web framework that follows the model-view-controller (MVC) architectural pattern.
 - Django Rest Framework (DRF): A powerful and flexible toolkit for building Web APIs based on Django.
@@ -17,20 +17,47 @@ Make sure you have the following software installed before running the project:
 - Python 3.x
 - Docker Desktop
 
-### How do I get set up?
+## Features
 
-- Summary of set up
+This project its not just a django with docker implementation, it has some other implemented features like:
 
-1. You can start the project running this easy commands:
+1. CustomPagination,
+2. Authentication with rest-framework and JWT (in progress),
+3. Bitbucket Pipeline (in progress),
+
+## How do I get set up?
+
+You can start the project running this easy commands:
 
 ```bash
 $ docker build .
 $ docker compose up
 ```
 
-2. If you need to makes or migrate migrations run:
+### Useful commands:
 
-```bash
-$ docker-compose run --rm app python manage.py makemigrations
-$ docker-compose run --rm app python manage.py migrate
-```
+- Migrations:
+
+  ```bash
+  docker-compose run --rm app python manage.py makemigrations
+  ```
+
+  ```bash
+  docker-compose run --rm app python manage.py migrate
+  ```
+
+  ```bash
+  docker-compose run --rm app python manage.py migrate app-name migration-to-reverse
+  ```
+
+- Super user:
+
+  ```bash
+  docker-compose run --rm app python manage.py createsuperuser
+  ```
+
+- New app:
+
+  ```bash
+  docker-compose run --rm app python manage.py startapp <app_name> project_apps
+  ```
