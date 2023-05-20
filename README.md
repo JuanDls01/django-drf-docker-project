@@ -17,20 +17,39 @@ Make sure you have the following software installed before running the project:
 - Python 3.x
 - Docker Desktop
 
-### How do I get set up?
+## How do I get set up?
 
-- Summary of set up
-
-1. You can start the project running this easy commands:
+You can start the project running this easy commands:
 
 ```bash
 $ docker build .
 $ docker compose up
 ```
 
-2. If you need to makes or migrate migrations run:
+### Useful commands:
 
-```bash
-$ docker-compose run --rm app python manage.py makemigrations
-$ docker-compose run --rm app python manage.py migrate
-```
+- Migrations:
+
+  ```bash
+  docker-compose run --rm app python manage.py makemigrations
+  ```
+
+  ```bash
+  docker-compose run --rm app python manage.py migrate
+  ```
+
+  ```bash
+  docker-compose run --rm app python manage.py migrate app-name migration-to-reverse
+  ```
+
+- Super user:
+
+  ```bash
+  docker-compose run --rm app python manage.py createsuperuser
+  ```
+
+- New app:
+
+  ```bash
+  docker-compose run --rm app python manage.py startapp <app_name> [destination]
+  ```
