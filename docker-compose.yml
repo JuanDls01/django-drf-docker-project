@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  app:
+    container_name: "django-drf-app"
+    build: .
+    ports:
+      - "8000:8000"
+    command: "python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+
+    restart: always
+    environment:
+      SECRET_KEY: "django-insecure-dqlcjddntex@%!m25v!w_voh$qo1ez8j)8epgk4w#vkwj*juk5"
+      DB_HOST: "db"
+      DB_NAME: "db-template"
+      DB_USER: "postgres"
+      DB_PASSWORD: "postgres"
+      DB_PORT: 5432
+      ENVIRONMENT: "DEVELOP"
+    depends_on:
+      - db
+
+  db:
+    container_name: "db-template"
+    image: postgres:12-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=db-template
+      - POSTGRES_USER=postgres # Put your postgres user
+      - POSTGRES_PASSWORD=postgres # Put your postgres password
+    ports:
+      - "5433:5432"
+    volumes:
+      - db-template:/var/lib/postgresql/data
+
+volumes:
+  db-template:
+    name: db-template
+    driver: local
+
+  api-template:
+    name: api-template
+    driver: local
