@@ -14,9 +14,10 @@ class Location(models.Model):
 
 class Currency(models.Model):
     name: str = models.CharField(max_length=25, unique=True)
+    sign: str = models.CharField(max_length=6, unique=True)
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return f"{self.sign} {self.name}"
 
     class Meta:
         db_table = "currency"
